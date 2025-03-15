@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        //var data = <%- JSON.stringify(data) %>;
+    </script>
+    <h1>Attribute Mapping Form</h1>
+    <div class="pipe">
+        <div>
+            <img src="<%= img_prev_path %>" id="prev">
+        </div>
+
+        <div>
+
+            <button id="add_attr" onclick="add_attr()">
+                Add Custom Attribute +
+            </button>
+
+            <br><br>
+            <form action="/enter" method="post" id="user_review">
+                
+                <div class="attr_panel">
+                <!--
+                <div class="new_attr">
+
+                
+                <div class="attr">
+                    <div class="key">
+                        Attribute Name 
+                    </div>
+                    <input type="text" >
+                </div>
+                <br>
+                <div class="attr">
+                    <div>
+                        Description 
+                    </div>
+                    <textarea></textarea>
+                </div>
+
+                </div>
+                -->
+                
+                
+                
+                <div class="attr" id="first">
+                    <div class="key">
+                        Invoice No
+                    </div>
+                
+                <input type = "text" id="inv_no" name="inv_no" value = "<%= data.inv_no %>">
+                
+                </div>
+                
+                <div class="attr">
+                    <div class="key">
+                        Invoice Date
+                    </div>
+                <input type = "text" id="inv_date" name= "inv_date" value = "<%= data.inv_date %>">
+                </div>
+
+                
+                <div class="attr">
+                    <div class="key">
+                        Customer Name
+                    </div>
+                <input type = "text" id="cust_name" name="cust_name" value = "<%= data.cust_name %>">
+                </div>
+
+                
+                <div class="attr">
+                    <div class ="key">
+                    Billing Address
+                    </div>
+                <textarea id="bill_address" name="bill_address"><%= data.bill_address %></textarea>                
+                </div>
+                
+                <div class="attr">
+                    <div class ="key">
+                        Total
+                    </div>
+                <input type = "text" id="total" name="total" value = "<%= data.total %>">
+                
+                </div>
+
+                <div class="attr">
+                    <div class ="key">
+                        Tax
+                    </div>
+                <input type = "text" id="tax" name="tax" value = "<%= data.tax %>">
+
+                </div>
+
+                <div class="attr">
+                    <div class ="key">
+                        Due Date
+                    </div>
+                <input type = "text" id="due_date" name="due_date" value = "<%= data.due_date %>">
+
+                </div>
+
+                
+            </div>
+            
+            <br>
+            <br>
+            <table id="items_list">
+                <tr id="heading_t">
+                    <td>Item Name</td>
+                    <td>Quantity</td>
+                    <td>Unit price</td>
+                    <td>+</td>
+                </tr>
+                <% for(let i=0; i<data.items.length; i++){ %>
+                    <div class="item">
+                    <tr>
+                        <td>
+                        <input type="text" value = "<%= data.items[i].item_name %>" name= "item_name[]">
+                        </td>
+                        <td>
+                        <input type="text" value = "<%= data.items[i].qty %>" name= "item_qty[]">
+                        </td>
+                        <td>
+                        <input type="text" value = "<%= data.items[i].unit_price %>" name= "unit_price[]">
+                        </td>
+                        <td onclick ="remove_item()">
+                            ╳
+                        </td>
+                    </tr>
+                    </div>
+
+                <% } %>
+            </table>
+
+            <br>
+
+
+            <input type="submit" value ="Submit Data Entry" >
+            
+            
+        </form>
+        
+        
+        
+
+
+        </div>
+    </div>
+
+    
+
+    <script>
+        function remove_item(p){
+            document.getElementById("items_list").removeChild(p);
+        }
+        
+        function add_attr(){
+            var form_r = document.getElementById("user_review");
+            var p = document.createElement("div");
+            p.setAttribute("class", "new_attr");
+            var p1 = document.createElement("div");
+            p1.setAttribute("class", "attr");
+            var p2 = document.createElement("div");
+            p2.setAttribute("class","key");
+            p2.innerHTML = "Attribute Name";
+            p1.appendChild(p2);
+            var p3 = document.createElement("input");
+            p3.setAttribute("type", "text");
+            p3.setAttribute("name", "custom[]");
+            p1.appendChild(p3);
+            var p4 = document.createElement("div");
+            p4.setAttribute("class", "attr");
+            var p5 = document.createElement("div");
+            p5.setAttribute("class","key");
+            p5.innerHTML = "Description";
+            p4.appendChild(p5);
+            var p6 = document.createElement("textarea");
+            p6.setAttribute("name", "custom_desc[]");
+            p4.appendChild(p6);
+            p.appendChild(p1);
+            p.appendChild(p4);
+            form_r.insertBefore(p , form_r.firstChild);
+            
+        }
+    </script>
+</body>
+</html>

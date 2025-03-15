@@ -1,0 +1,110 @@
+body{
+    font-family: 'Franklin Gothic Medium';
+}
+
+.attr_panel{
+    display : flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.attr{
+    display: flex;
+    border-radius: 5px;
+    background-color: lightgrey;
+    width: fit-content;
+}
+
+.attr1{
+    display: flex;
+    border-radius: 5px;
+    background-color: rgb(52, 222, 109);
+    width: fit-content;
+}
+
+.key{
+    padding: 10px
+}
+
+input[type="text"]{
+    border-radius: 5px;
+    background-color: rgb(169, 165, 165);
+    border: none;
+
+}
+
+textarea{
+    border-radius: 5px;
+    background-color: rgb(169, 165, 165);
+    border: none;
+}
+
+h1{
+    text-align: center;
+}
+
+input[type="submit"]{
+    background-color: gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.inp{
+    display:flex;
+    gap: 10px;
+}
+
+img{
+    width: 800px;
+}
+
+table{
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+td{
+    padding: 10px;
+}
+
+table, tr, td{
+    
+    border-collapse: collapse;
+}
+
+#bill_address{
+    width: 500px;
+    height: 80px;
+}
+
+#heading_t{
+    text-align: center;
+}
+
+.pipe{
+    display: flex;
+    gap: 10px;
+}
+
+
+#add_attr{
+    background-color: rgb(176, 175, 175);
+    font-size: 20px;
+    border-radius: 10px;
+}   
+
+.new_attr{
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.new_attr textarea{
+    width: 500px;
+    height: 80px;
+}

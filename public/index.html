@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Attribute Mapping UI</h1>
+
+    <form method="post" action="/submit">
+        <label for="select_model">Select Model : </label>
+        <select name="select_model" id="select_model">
+            <option value="Qwen/Qwen2-VL-72B-Instruct">Qwen/Qwen2-VL-72B-Instruct</option>
+            <option value="meta-llama/Llama-Vision-Free">meta-llama/Llama-Vision-Free</option>
+            <option value="meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo">meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo</option>
+        </select>  
+        <br><br>
+        <label for="image_no">Enter the image id: </label>
+        <input type="text" id="image_no" name="image_no">
+        <select name="img_extension" id="img_extension">
+            <option value=".jpg">.jpg</option>
+            <option value=".jpeg">.jpeg</option>
+            <option value=".webp">.webp</option>
+            <option value=".png">.png</option>
+            <option value=".tif">.tif</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <button  onclick="showPreview()">Show Preview</button>
+    <div class="inp">
+        <img src="" id="prev">
+    </div>
+
+    <script>
+        function showPreview(){
+            let img_path = document.getElementById("image_no").value;
+            let img_extension = document.getElementById("img_extension").value;
+            document.getElementById("prev").src= "images/" + img_path +img_extension;
+        }
+    </script>
+</body>
+</html>
